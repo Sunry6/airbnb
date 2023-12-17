@@ -3,7 +3,7 @@ import { RightWrapper } from './style';
 import IconGlobal from '@/assets/svg/icon_global';
 import IconMenu from '@/assets/svg/icon_menu';
 import IconAvatar from '@/assets/svg/icon_avatar';
-import { useShowPanel } from './hooks/useShowPanel';
+import { useShowPanel } from '../../hooks/useShowPanel';
 
 const HeaderRight = memo(() => {
 	const { showPanel, setShowPanel } = useShowPanel();

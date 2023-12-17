@@ -1,8 +1,8 @@
 import React, { memo } from 'react';
-import { HomeBannerWrapper } from './style';
+import BannerWrapper from './style';
 
 const HomeBanner = memo(() => {
-	return <HomeBannerWrapper>HomeBanner</HomeBannerWrapper>;
+	return <BannerWrapper>HomeBanner</BannerWrapper>;
 });
 
 export default HomeBanner;
