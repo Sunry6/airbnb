@@ -8,6 +8,8 @@ export const useHomeState = () => {
 		(state) => ({
 			goodPriceInfo: state.home.goodPriceInfo,
 			highScoreInfo: state.home.highScoreInfo,
+			discountInfo: state.home.discountInfo,
+			recommendInfo: state.home.recommendInfo,
 		}),
 		shallowEqual
 	);
@@ -16,6 +18,5 @@ export const useHomeState = () => {
 		dispatch(fetchHomeDataAction());
 	}, [dispatch]);
 
-	const { goodPriceInfo, highScoreInfo } = state;
-	return { goodPriceInfo, highScoreInfo };
+	return state;
 };

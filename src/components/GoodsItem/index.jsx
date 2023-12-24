@@ -4,10 +4,13 @@ import GoodsItemWrapper from './style';
 import { Rating } from '@mui/material';
 
 const GoodsItem = memo((props) => {
-	const { itemData } = props;
+	const { itemData, itemWidth = '25%' } = props;
 
 	return (
-		<GoodsItemWrapper verifyColor={itemData.verify_info?.text_color || '#39576a'}>
+		<GoodsItemWrapper
+			itemWidth={itemWidth}
+			verifyColor={itemData.verify_info?.text_color || '#39576a'}
+		>
 			<div className="inner">
 				<div className="cover">
 					<img src={itemData.picture_url} alt="" />

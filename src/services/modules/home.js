@@ -11,3 +11,15 @@ export function getHomeHighScoreData() {
 		url: '/home/highscore',
 	});
 }
+
+export function getHomeDiscountData() {
+	return ryanRequest.get({
+		url: '/home/discount',
+	});
+}
+
+export function getHomeRecommendData() {
+	return ryanRequest.get({
+		url: '/home/hotrecommenddest',
+	});
+}
