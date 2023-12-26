@@ -3,6 +3,7 @@ import SectionHeader from '@/components/SectionHeader';
 import React, { memo, useCallback, useState } from 'react';
 import RecommendWrapper from './style';
 import SectionTabs from '@/components/SectionTabs';
+import SectionFooter from '@/components/SectionFooter';
 
 const Recommend = memo((props) => {
 	const { recommendInfo } = props;
@@ -19,6 +20,7 @@ const Recommend = memo((props) => {
 			<SectionHeader title={recommendInfo.title} subTitle={recommendInfo.subtitle} />
 			<SectionTabs tabNames={tabNames} tabClick={tabClickHandle} />
 			<SectionGoods itemWidth="33%" goodsList={recommendInfo.dest_list[name]} />
+			<SectionFooter name={name} />
 		</RecommendWrapper>
 	);
 });

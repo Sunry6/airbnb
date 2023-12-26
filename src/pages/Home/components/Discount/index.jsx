@@ -3,6 +3,7 @@ import SectionHeader from '@/components/SectionHeader';
 import React, { memo, useCallback, useState } from 'react';
 import DiscountWrapper from './style';
 import SectionTabs from '@/components/SectionTabs';
+import SectionFooter from '@/components/SectionFooter';
 
 const Discount = memo((props) => {
 	const { discountInfo } = props;
@@ -19,6 +20,7 @@ const Discount = memo((props) => {
 			<SectionHeader title={discountInfo.title} subTitle={discountInfo.subtitle} />
 			<SectionTabs tabNames={tabNames} tabClick={tabClickHandle} />
 			<SectionGoods itemWidth="33%" goodsList={discountInfo.dest_list[name]} />
+			<SectionFooter name={name} />
 		</DiscountWrapper>
 	);
 });
