@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 const GoodsItemWrapper = styled.li`
+	flex-shrink: 0;
 	box-sizing: border-box;
 	width: ${(props) => props.itemWidth};
 	padding: 8px;
@@ -22,6 +23,7 @@ const GoodsItemWrapper = styled.li`
 			top: 0;
 			width: 100%;
 			height: 100%;
+			object-fit: cover;
 		}
 	}
 

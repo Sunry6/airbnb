@@ -1,43 +1,38 @@
-import React, { memo, useEffect, useRef, useState } from 'react';
+import React, { memo } from 'react';
 import ScrollViewWrapper from './style';
+import useScroll from './hooks/useScroll';
+import IconArrowLeft from '@/assets/svg/icon-arrow-left';
+import IconArrowRight from '@/assets/svg/icon-arrow-right';
 
 const ScrollView = memo((props) => {
-	const { children } = props;
-	const [showRight, setShowRight] = useState(false);
-	const [positionIndex, setPositionIndex] = useState(0);
-	const scrollContentRef = useRef();
-	const totalDistanceRef = useRef();
-
-	useEffect(() => {
-		const scrollWidth = scrollContentRef.current.scrollWidth;
-		const clientWidth = scrollContentRef.current.clientWidth;
-		const totalDistance = scrollWidth - clientWidth;
-		console.log(scrollWidth, clientWidth);
-		totalDistanceRef.current = totalDistance;
-		setShowRight(totalDistance > 0);
-	}, [props.children]);
-
-	const rightClickHandle = () => {
-		const newIndex = positionIndex + 1;
-		const newEl = scrollContentRef.current.children[newIndex];
-		const newElOffsetLeft = newEl.offsetLeft;
-		scrollContentRef.current.style.transform = `translate(-${newElOffsetLeft}px)`;
-		setPositionIndex(newIndex);
-		// 是否继续显示右边的按钮
-		console.log(totalDistanceRef.current, newElOffsetLeft);
-		setShowRight(totalDistanceRef.current > newElOffsetLeft);
-	};
+	const { controlClickHandle, scrollContentRef, showRight, showLeft } = useScroll();
 
 	return (
 		<ScrollViewWrapper>
-			<button className="left-button">左侧按钮</button>
-			{showRight && (
-				<button className="right-button" onClick={rightClickHandle}>
-					右侧按钮
-				</button>
+			{showLeft && (
+				<div
+					className="control left"
+					onClick={() => {
+						controlClickHandle(false);
+					}}
+				>
+					<IconArrowLeft />
+				</div>
 			)}
-			<div className="scroll-content" ref={scrollContentRef}>
-				{children}
+			{showRight && (
+				<div
+					className="control right"
+					onClick={() => {
+						controlClickHandle(true);
+					}}
+				>
+					<IconArrowRight />
+				</div>
+			)}
+			<div className="scroll">
+				<div className="scroll-content" ref={scrollContentRef}>
+					{props?.children}
+				</div>
 			</div>
 		</ScrollViewWrapper>
 	);

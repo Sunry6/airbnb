@@ -8,5 +8,9 @@ export const HomeWrapper = styled.div`
 		.content-item {
 			margin-top: 30px;
 		}
+
+		> div {
+			margin-top: 30px;
+		}
 	}
 `;

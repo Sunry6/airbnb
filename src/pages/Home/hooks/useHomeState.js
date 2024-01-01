@@ -10,6 +10,8 @@ export const useHomeState = () => {
 			highScoreInfo: state.home.highScoreInfo,
 			discountInfo: state.home.discountInfo,
 			recommendInfo: state.home.recommendInfo,
+			longForInfo: state.home.longForInfo,
+			plusInfo: state.home.plusInfo,
 		}),
 		shallowEqual
 	);

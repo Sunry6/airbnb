@@ -15,11 +15,11 @@ const routes = [
 		element: <Home />,
 	},
 	{
-		path: '/home',
+		path: '/entire',
 		element: <Entire />,
 	},
 	{
-		path: '/Detail',
+		path: '/detail',
 		element: <Detail />,
 	},
 ];
